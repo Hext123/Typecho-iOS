@@ -12,7 +12,7 @@
 
 + (id)plusButton{
     TTabBarPlusButton *btn = [[TTabBarPlusButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
-    [btn setImage:[UIImage imageNamed:@"tabbar_add"] forState:UIControlStateNormal];
+    [btn setImage:R.image.tabbarAdd forState:UIControlStateNormal];
     return btn;
 }
 

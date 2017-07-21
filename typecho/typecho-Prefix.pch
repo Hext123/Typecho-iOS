@@ -1,0 +1,17 @@
+//
+//  typecho-Prefix.pch
+//  typecho
+//
+//  Created by hext on 2017/7/21.
+//  Copyright © 2017年 hext. All rights reserved.
+//
+
+#ifndef typecho_Prefix_pch
+#define typecho_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "R.h"
+
+#endif /* typecho_Prefix_pch */

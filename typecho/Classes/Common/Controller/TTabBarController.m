@@ -23,15 +23,12 @@
 }
 - (void)setupViewControllers {
     TPostsTableViewController *firstViewController = [TPostsTableViewController newViewController];
-    TNavigationController *firstNavigationController = [[TNavigationController alloc]
-                                                        initWithRootViewController:firstViewController];
-    firstNavigationController.tabBarItem.image = [UIImage imageNamed:@"tabbar_my"];
+    TNavigationController *firstNavigationController = [[TNavigationController alloc] initWithRootViewController:firstViewController];
+    firstNavigationController.tabBarItem.image = R.image.tabbarMy;
     
     UIViewController *secondViewController = [UIViewController new];
-    TNavigationController *secondNavigationController = [[TNavigationController alloc]
-                                                         initWithRootViewController:secondViewController];
-    secondNavigationController.tabBarItem.image = [UIImage imageNamed:@"tabbar_setting"];
-    
+    TNavigationController *secondNavigationController = [[TNavigationController alloc] initWithRootViewController:secondViewController];
+    secondNavigationController.tabBarItem.image = R.image.tabbarSetting;
     
     [self customizeTabBar];
     

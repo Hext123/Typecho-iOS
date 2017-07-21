@@ -9,4 +9,5 @@ target 'typecho' do
   pod 'wpxmlrpc'
   pod 'CYLTabBarController'
   pod 'AFNetworking'
+  pod 'R.objc'
 end

@@ -15,18 +15,21 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - CYLTabBarController (1.13.1)
+  - R.objc (0.4.0)
   - wpxmlrpc (0.8.3)
 
 DEPENDENCIES:
   - AFNetworking
   - CYLTabBarController
+  - R.objc
   - wpxmlrpc
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CYLTabBarController: 97f6b486f9e6c613d69e9c111cc9c2c5db7000ce
+  R.objc: db21c86c2d11aea87ad1213c63ec5cba16e1b801
   wpxmlrpc: bfc572f62ce7ee897f6f38b098d2ba08732ecef4
 
-PODFILE CHECKSUM: c2e2fd11edffc90bc7e9cf36d8927ae6517ed739
+PODFILE CHECKSUM: 797b63a08cf6c2b2218735cd5f196f6e22d1413e
 
 COCOAPODS: 1.1.1
