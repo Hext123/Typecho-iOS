@@ -8,7 +8,6 @@
 
 #import "TTabBarController.h"
 #import "TNavigationController.h"
-#import "TPostsTableViewController.h"
 
 @interface TTabBarController ()
 
@@ -22,7 +21,8 @@
     return tabBarController;
 }
 - (void)setupViewControllers {
-    TPostsTableViewController *firstViewController = [TPostsTableViewController newViewController];
+    
+    UIViewController *firstViewController = R.storyboard.main.tMyTableViewController;
     TNavigationController *firstNavigationController = [[TNavigationController alloc] initWithRootViewController:firstViewController];
     firstNavigationController.tabBarItem.image = R.image.tabbarMy;
     

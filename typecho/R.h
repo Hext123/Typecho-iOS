@@ -19,6 +19,7 @@
 @interface RMain: NSObject
 - (__kindof UIViewController*)instantiateInitialViewController;
 - (__kindof UIViewController*)tAddWebsiteTableViewController;
+- (__kindof UIViewController*)tMyTableViewController;
 - (__kindof UIViewController*)tPostsTableViewController;
 @end
 

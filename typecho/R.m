@@ -29,6 +29,7 @@
 @implementation RMain
 - (__kindof UIViewController*)instantiateInitialViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController]; }
 - (__kindof UIViewController*)tAddWebsiteTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TAddWebsiteTableViewController"]; }
+- (__kindof UIViewController*)tMyTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TMyTableViewController"]; }
 - (__kindof UIViewController*)tPostsTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TPostsTableViewController"]; }
 @end
 

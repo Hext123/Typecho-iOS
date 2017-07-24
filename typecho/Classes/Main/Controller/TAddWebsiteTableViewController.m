@@ -58,6 +58,12 @@
                 NSLog(@"XML-RPC response: %@", [decoder object]);
                 if ([[decoder object] isKindOfClass:[NSArray class]]) {
                     [self getOptions:sender methods:[decoder object]];
+                }else{
+                    
+                    [[[UIAlertView alloc]initWithTitle:@"提示" message:@"解析失败! 收到的数据格式不正确." delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+                    
+                    sender.enabled = YES;
+                    [sender setTitle:@"添加站点" forState:UIControlStateNormal];
                 }
             }
         }
@@ -93,6 +99,9 @@
                     info.methods = methods;
                     
                     [UIApplication sharedApplication].delegate.window.rootViewController = [TTabBarController newTabBarController];
+                }else{
+                    
+                    [[[UIAlertView alloc]initWithTitle:@"提示" message:@"解析失败! 收到的数据格式不正确." delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
                 }
             }
         }
