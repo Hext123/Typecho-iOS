@@ -21,13 +21,15 @@
 
 
 @implementation RLaunchScreen
-- (UIViewController*)instantiateInitialViewController { return [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil] instantiateInitialViewController]; }
+- (__kindof UIViewController*)instantiateInitialViewController { return [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil] instantiateInitialViewController]; }
 @end
 
 
 
 @implementation RMain
-- (UIViewController*)instantiateInitialViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController]; }
+- (__kindof UIViewController*)instantiateInitialViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController]; }
+- (__kindof UIViewController*)tAddWebsiteTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TAddWebsiteTableViewController"]; }
+- (__kindof UIViewController*)tPostsTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TPostsTableViewController"]; }
 @end
 
 
@@ -61,7 +63,7 @@
 
 
 @implementation RSegue
-- (void)performWithSource:(UIViewController*)sourceViewController sender:(id)sender { [sourceViewController performSegueWithIdentifier:self.identifier sender:sender]; }
+- (void)performWithSource:(__kindof UIViewController*)sourceViewController sender:(id)sender { [sourceViewController performSegueWithIdentifier:self.identifier sender:sender]; }
 @end
 
 

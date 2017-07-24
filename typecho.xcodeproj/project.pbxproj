@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27FC4A01C621207AD0456E12 /* libPods-typecho.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B05834EE810CB84C97C93C6 /* libPods-typecho.a */; };
+		523C75741F262187002EEDE7 /* R.m in Sources */ = {isa = PBXBuildFile; fileRef = 523C75731F262187002EEDE7 /* R.m */; };
 		526379D51F1E08CA00DEECB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 526379D41F1E08CA00DEECB1 /* main.m */; };
 		526379E01F1E08CA00DEECB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526379DF1F1E08CA00DEECB1 /* Assets.xcassets */; };
 		526379E31F1E08CA00DEECB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526379E11F1E08CA00DEECB1 /* LaunchScreen.storyboard */; };
@@ -20,13 +21,14 @@
 		52637A1F1F1E1D1B00DEECB1 /* TPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52637A1E1F1E1D1B00DEECB1 /* TPostsTableViewController.m */; };
 		52637A221F1E2C1B00DEECB1 /* TWebsiteInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52637A211F1E2C1B00DEECB1 /* TWebsiteInfo.m */; };
 		52637A251F1E326900DEECB1 /* TAddWebsiteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52637A241F1E326900DEECB1 /* TAddWebsiteTableViewController.m */; };
-		5266EC6C1F21FBA400346080 /* R.m in Sources */ = {isa = PBXBuildFile; fileRef = 5266EC6B1F21FBA400346080 /* R.m */; };
 		52780E021F20B1EC0073C046 /* TTabBarPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52780E011F20B1EC0073C046 /* TTabBarPlusButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B05834EE810CB84C97C93C6 /* libPods-typecho.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-typecho.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51613F5CDC646C9C874392B0 /* Pods-typecho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-typecho.debug.xcconfig"; path = "Pods/Target Support Files/Pods-typecho/Pods-typecho.debug.xcconfig"; sourceTree = "<group>"; };
+		523C75721F262187002EEDE7 /* R.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = R.h; sourceTree = "<group>"; };
+		523C75731F262187002EEDE7 /* R.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = R.m; sourceTree = "<group>"; };
 		526379D01F1E08CA00DEECB1 /* typecho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = typecho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		526379D41F1E08CA00DEECB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		526379DF1F1E08CA00DEECB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,8 +51,6 @@
 		52637A211F1E2C1B00DEECB1 /* TWebsiteInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWebsiteInfo.m; sourceTree = "<group>"; };
 		52637A231F1E326900DEECB1 /* TAddWebsiteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAddWebsiteTableViewController.h; sourceTree = "<group>"; };
 		52637A241F1E326900DEECB1 /* TAddWebsiteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAddWebsiteTableViewController.m; sourceTree = "<group>"; };
-		5266EC6A1F21FBA400346080 /* R.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = R.h; sourceTree = SOURCE_ROOT; };
-		5266EC6B1F21FBA400346080 /* R.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = R.m; sourceTree = SOURCE_ROOT; };
 		5266EC6D1F21FF6E00346080 /* typecho-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecho-Prefix.pch"; sourceTree = "<group>"; };
 		52780E001F20B1EC0073C046 /* TTabBarPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTabBarPlusButton.h; sourceTree = "<group>"; };
 		52780E011F20B1EC0073C046 /* TTabBarPlusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTabBarPlusButton.m; sourceTree = "<group>"; };
@@ -234,8 +234,8 @@
 		5266EC6E1F2203DE00346080 /* R.objc */ = {
 			isa = PBXGroup;
 			children = (
-				5266EC6A1F21FBA400346080 /* R.h */,
-				5266EC6B1F21FBA400346080 /* R.m */,
+				523C75721F262187002EEDE7 /* R.h */,
+				523C75731F262187002EEDE7 /* R.m */,
 			);
 			name = R.objc;
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/R.objc/Robjc\" -p \"$SRCROOT\"";
+			shellScript = "\"${PODS_ROOT}/R.objc/Robjc\" -p \"${SRCROOT}/typecho\"";
 		};
 		5266EC6F1F220DCF00346080 /* Build Auto Incrementing Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -413,7 +413,7 @@
 				52637A251F1E326900DEECB1 /* TAddWebsiteTableViewController.m in Sources */,
 				52637A101F1E196B00DEECB1 /* TNavigationController.m in Sources */,
 				52780E021F20B1EC0073C046 /* TTabBarPlusButton.m in Sources */,
-				5266EC6C1F21FBA400346080 /* R.m in Sources */,
+				523C75741F262187002EEDE7 /* R.m in Sources */,
 				526379D51F1E08CA00DEECB1 /* main.m in Sources */,
 				52637A1F1F1E1D1B00DEECB1 /* TPostsTableViewController.m in Sources */,
 				52637A111F1E196B00DEECB1 /* TTabBarController.m in Sources */,

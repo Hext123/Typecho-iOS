@@ -12,12 +12,14 @@
 
 
 @interface RLaunchScreen: NSObject
-- (UIViewController*)instantiateInitialViewController;
+- (__kindof UIViewController*)instantiateInitialViewController;
 @end
 
 
 @interface RMain: NSObject
-- (UIViewController*)instantiateInitialViewController;
+- (__kindof UIViewController*)instantiateInitialViewController;
+- (__kindof UIViewController*)tAddWebsiteTableViewController;
+- (__kindof UIViewController*)tPostsTableViewController;
 @end
 
 
@@ -29,7 +31,7 @@
 
 @interface RSegue: NSObject
 @property (nonatomic, strong) NSString* identifier;
-- (void)performWithSource:(UIViewController*)sourceViewController sender:(id)sender;
+- (void)performWithSource:(__kindof UIViewController*)sourceViewController sender:(id)sender;
 @end
 
 
