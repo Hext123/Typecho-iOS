@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <wpxmlrpc/WPXMLRPC.h>
+#import "TWebsiteInfo.h"
 
 @interface TNetworkTool : NSObject
 + (NSURLSessionDataTask *)POST:(NSString *)URLString

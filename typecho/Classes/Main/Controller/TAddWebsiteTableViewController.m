@@ -7,9 +7,7 @@
 //
 
 #import "TAddWebsiteTableViewController.h"
-#import "TNetworkTool.h"
 #import "TTabBarController.h"
-#import "TWebsiteInfo.h"
 
 @interface TAddWebsiteTableViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *websiteTF;
@@ -45,22 +43,24 @@
             sender.enabled = YES;
             [sender setTitle:@"添加站点" forState:UIControlStateNormal];
             
-            [[[UIAlertView alloc]initWithTitle:@"提示" message:@"验证失败！请检查您的网络和URL输入是否正确。" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+            [TProgressHUD showError:@"验证失败！请检查您的网络和URL输入是否正确。"];
         } else {
             if ([decoder isFault]) {
                 
                 sender.enabled = YES;
                 [sender setTitle:@"添加站点" forState:UIControlStateNormal];
                 
+                [TProgressHUD showError:[decoder faultString]];
+                
                 NSLog(@"XML-RPC error %ld: %@", (long)[decoder faultCode], [decoder faultString]);
-                [[[UIAlertView alloc]initWithTitle:@"提示" message:[decoder faultString] delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+               
             } else {
                 NSLog(@"XML-RPC response: %@", [decoder object]);
                 if ([[decoder object] isKindOfClass:[NSArray class]]) {
                     [self getOptions:sender methods:[decoder object]];
                 }else{
                     
-                    [[[UIAlertView alloc]initWithTitle:@"提示" message:@"解析失败! 收到的数据格式不正确." delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+                    [TProgressHUD showError:@"解析失败! 收到的数据格式不正确."];
                     
                     sender.enabled = YES;
                     [sender setTitle:@"添加站点" forState:UIControlStateNormal];
@@ -83,11 +83,13 @@
         
         WPXMLRPCDecoder *decoder = responseObject;
         if (error || ![decoder object]) {
-            [[[UIAlertView alloc]initWithTitle:@"提示" message:@"验证失败！请检查您的网络和URL输入是否正确。" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+            [TProgressHUD showError:@"验证失败！请检查您的网络和URL输入是否正确。"];
         } else {
             if ([decoder isFault]) {
+                
+                [TProgressHUD showError: [decoder faultString]];
                 NSLog(@"XML-RPC error %ld: %@", (long)[decoder faultCode], [decoder faultString]);
-                [[[UIAlertView alloc]initWithTitle:@"提示" message:[decoder faultString] delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+               
             } else {
                 NSLog(@"XML-RPC response: %@", [decoder object]);
                 if ([[decoder object] isKindOfClass:[NSDictionary class]]) {
@@ -101,7 +103,7 @@
                     [UIApplication sharedApplication].delegate.window.rootViewController = [TTabBarController newTabBarController];
                 }else{
                     
-                    [[[UIAlertView alloc]initWithTitle:@"提示" message:@"解析失败! 收到的数据格式不正确." delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+                    [TProgressHUD showError:@"解析失败! 收到的数据格式不正确."];
                 }
             }
         }

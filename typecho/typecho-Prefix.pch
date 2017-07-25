@@ -13,5 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import "R.h"
+#import "TNetworkTool.h"
+#import "TProgressHUD.h"
 
 #endif /* typecho_Prefix_pch */

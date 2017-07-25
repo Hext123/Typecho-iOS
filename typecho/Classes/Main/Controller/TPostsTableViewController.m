@@ -8,11 +8,14 @@
 
 #import "TPostsTableViewController.h"
 #import <SafariServices/SafariServices.h>
-#import "TNetworkTool.h"
-#import "TWebsiteInfo.h"
+
+typedef NS_ENUM(NSInteger, TTableFooterViewType) {
+    TTableFooterViewTypeNone        = 0,
+    TTableFooterViewTypeLoading     = 1,
+    TTableFooterViewTypeLoadFail    = 2,
+};
 
 @interface TPostsTableViewController ()
-
 @property(copy, nonatomic)NSArray *data;
 @end
 
@@ -28,7 +31,36 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 200;
     
+    [self setTableFooterViewType:TTableFooterViewTypeLoading];
+
     [self getData];
+}
+
+- (void)setTableFooterViewType:(TTableFooterViewType)type{
+    switch (type) {
+        case TTableFooterViewTypeNone:
+            self.tableView.tableFooterView = [UIView new];
+            break;
+        case TTableFooterViewTypeLoading:
+            self.tableView.tableFooterView = ({
+                UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+                lab.text = @"加载中...";
+                lab.textAlignment = NSTextAlignmentCenter;
+                lab;
+            });
+            break;
+        case TTableFooterViewTypeLoadFail:
+            self.tableView.tableFooterView = ({
+                UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+                [btn setTitle:@"加载失败! 点击重新加载" forState:UIControlStateNormal];
+                [btn addTarget:self action:@selector(getData) forControlEvents:UIControlEventTouchUpInside];
+                btn;
+            });
+            break;
+        default:
+            self.tableView.tableFooterView = nil;
+            break;
+    }
 }
 
 - (void)getData{
@@ -39,7 +71,9 @@
     NSString *methodName = @"metaWeblog.getRecentPosts";
     
     if (![info.methods containsObject:methodName]) {
-        [[[UIAlertView alloc]initWithTitle:@"提示" message:@"您的站点不支持此功能" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+        [TProgressHUD showError:@"您的站点不支持此功能"];
+        
+        [self setTableFooterViewType:TTableFooterViewTypeNone];
         return;
     }
     
@@ -47,19 +81,25 @@
     
     [TNetworkTool POST:urlString method:methodName parameters:parameters completion:^(NSURLResponse *response, id responseObject, NSError *error) {
         
+        [self setTableFooterViewType:TTableFooterViewTypeNone];
+        
         if (error) {
-            [[[UIAlertView alloc]initWithTitle:@"提示" message:@"连接失败, 请检查网络!" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+            [TProgressHUD showError:@"连接失败, 请检查网络!"];
         } else {
             WPXMLRPCDecoder *decoder = responseObject;
             if ([decoder isFault]) {
                 NSLog(@"XML-RPC error %ld: %@", (long)[decoder faultCode], [decoder faultString]);
-                [[[UIAlertView alloc]initWithTitle:@"提示" message:[decoder faultString] delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+                
+                [TProgressHUD showError:[decoder faultString]];
             } else {
                 NSLog(@"XML-RPC response: %@", [decoder object]);
                 if ([[decoder object] isKindOfClass:[NSArray class]]) {
                     
                     self.data = [decoder object];
                     [self.tableView reloadData];
+                }else{
+                    
+                    [TProgressHUD showError:@"解析失败! 收到的数据格式不正确."];
                 }
             }
         }

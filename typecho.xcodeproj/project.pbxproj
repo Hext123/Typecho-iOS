@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27FC4A01C621207AD0456E12 /* libPods-typecho.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B05834EE810CB84C97C93C6 /* libPods-typecho.a */; };
+		5225B2921F26F79B0022EE91 /* TProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5225B2911F26F79B0022EE91 /* TProgressHUD.m */; };
 		523C75741F262187002EEDE7 /* R.m in Sources */ = {isa = PBXBuildFile; fileRef = 523C75731F262187002EEDE7 /* R.m */; };
 		526379D51F1E08CA00DEECB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 526379D41F1E08CA00DEECB1 /* main.m */; };
 		526379E01F1E08CA00DEECB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526379DF1F1E08CA00DEECB1 /* Assets.xcassets */; };
@@ -27,6 +28,8 @@
 /* Begin PBXFileReference section */
 		3B05834EE810CB84C97C93C6 /* libPods-typecho.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-typecho.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51613F5CDC646C9C874392B0 /* Pods-typecho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-typecho.debug.xcconfig"; path = "Pods/Target Support Files/Pods-typecho/Pods-typecho.debug.xcconfig"; sourceTree = "<group>"; };
+		5225B2901F26F79B0022EE91 /* TProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProgressHUD.h; sourceTree = "<group>"; };
+		5225B2911F26F79B0022EE91 /* TProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TProgressHUD.m; sourceTree = "<group>"; };
 		523C75721F262187002EEDE7 /* R.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = R.h; sourceTree = "<group>"; };
 		523C75731F262187002EEDE7 /* R.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = R.m; sourceTree = "<group>"; };
 		526379D01F1E08CA00DEECB1 /* typecho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = typecho.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +185,8 @@
 			children = (
 				52637A0D1F1E196B00DEECB1 /* TNetworkTool.h */,
 				52637A0E1F1E196B00DEECB1 /* TNetworkTool.m */,
+				5225B2901F26F79B0022EE91 /* TProgressHUD.h */,
+				5225B2911F26F79B0022EE91 /* TProgressHUD.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				52637A251F1E326900DEECB1 /* TAddWebsiteTableViewController.m in Sources */,
 				52637A101F1E196B00DEECB1 /* TNavigationController.m in Sources */,
 				52780E021F20B1EC0073C046 /* TTabBarPlusButton.m in Sources */,
+				5225B2921F26F79B0022EE91 /* TProgressHUD.m in Sources */,
 				523C75741F262187002EEDE7 /* R.m in Sources */,
 				526379D51F1E08CA00DEECB1 /* main.m in Sources */,
 				52637A1F1F1E1D1B00DEECB1 /* TPostsTableViewController.m in Sources */,
