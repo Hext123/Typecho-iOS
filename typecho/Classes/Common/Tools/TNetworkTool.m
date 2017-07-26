@@ -32,9 +32,14 @@
             NSLog(@"Error: %@", error);
             completion(response,responseObject,error);
         } else {
-            NSLog(@"%@ %@", response, responseObject);
             WPXMLRPCDecoder *decoder = [[WPXMLRPCDecoder alloc] initWithData:responseObject];
-            completion(response,decoder,error);
+            if ([decoder object]) {
+                NSLog(@"XML-RPC response: %@", [decoder object]);
+                completion(response,decoder,error);
+            } else {
+                NSLog(@"%@ %@", response, [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+                completion(response,responseObject,[NSError errorWithDomain:@"com.wskfz.typecho.parse.failure" code:-1 userInfo:@{NSLocalizedDescriptionKey:@"xmlrpc返回解析失败!"}]);
+            }
         }
     }];
     [sessionDataTask resume];
