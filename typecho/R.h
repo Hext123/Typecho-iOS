@@ -20,6 +20,7 @@
 - (__kindof UIViewController*)instantiateInitialViewController;
 - (__kindof UIViewController*)tAddWebsiteTableViewController;
 - (__kindof UIViewController*)tMyTableViewController;
+- (__kindof UIViewController*)tPagesTableViewController;
 - (__kindof UIViewController*)tPostsTableViewController;
 @end
 

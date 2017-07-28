@@ -1,12 +1,12 @@
 //
-//  TPostsTableViewController.m
+//  TPagesTableViewController.m
 //  typecho
 //
-//  Created by hext on 2017/7/18.
+//  Created by hext on 2017/7/28.
 //  Copyright © 2017年 hext. All rights reserved.
 //
 
-#import "TPostsTableViewController.h"
+#import "TPagesTableViewController.h"
 #import <SafariServices/SafariServices.h>
 
 typedef NS_ENUM(NSInteger, TTableFooterViewType) {
@@ -15,14 +15,14 @@ typedef NS_ENUM(NSInteger, TTableFooterViewType) {
     TTableFooterViewTypeLoadFail    = 2,
 };
 
-@interface TPostsTableViewController ()
+@interface TPagesTableViewController ()
 @property(copy, nonatomic)NSArray *data;
 @end
 
-@implementation TPostsTableViewController
+@implementation TPagesTableViewController
 
 +(instancetype)newViewController{
-    return R.storyboard.main.tPostsTableViewController;
+    return R.storyboard.main.tPagesTableViewController;
 }
 
 - (void)viewDidLoad {
@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, TTableFooterViewType) {
     self.tableView.estimatedRowHeight = 200;
     
     [self setTableFooterViewType:TTableFooterViewTypeLoading];
-
+    
     [self getData];
 }
 
@@ -68,7 +68,7 @@ typedef NS_ENUM(NSInteger, TTableFooterViewType) {
     TWebsiteInfo *info = [TWebsiteInfo currentWebsiteInfo];
     
     NSString *urlString = info.url;
-    NSString *methodName = @"metaWeblog.getRecentPosts";
+    NSString *methodName = @"wp.getPages";
     
     if (![info.methods containsObject:methodName]) {
         [TProgressHUD showError:@"您的站点不支持此功能"];
@@ -77,7 +77,7 @@ typedef NS_ENUM(NSInteger, TTableFooterViewType) {
         return;
     }
     
-    NSArray *parameters = @[@0, info.username, info.password, @20];
+    NSArray *parameters = @[@0, info.username, info.password];
     
     [TNetworkTool POST:urlString method:methodName parameters:parameters completion:^(NSURLResponse *response, id responseObject, NSError *error) {
         
@@ -113,11 +113,11 @@ typedef NS_ENUM(NSInteger, TTableFooterViewType) {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TPostsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    TPagesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     cell.titleLab.text = self.data[indexPath.row][@"title"];
-    cell.excerptLab.text = self.data[indexPath.row][@"mt_excerpt"];
-    NSDate *dateCreated = self.data[indexPath.row][@"dateCreated"];
+    cell.excerptLab.text = self.data[indexPath.row][@"excerpt"];
+    NSDate *dateCreated = self.data[indexPath.row][@"date_created_gmt"];
     if ([dateCreated isKindOfClass:[NSDate class]]) {
         NSDateFormatter *df = [NSDateFormatter new];
         df.dateFormat = @"yyyy-MM-dd HH:mm:ss";
@@ -141,6 +141,6 @@ typedef NS_ENUM(NSInteger, TTableFooterViewType) {
 
 @end
 
-@implementation TPostsTableViewCell
+@implementation TPagesTableViewCell
 
 @end

@@ -23,6 +23,7 @@
 		52637A221F1E2C1B00DEECB1 /* TWebsiteInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52637A211F1E2C1B00DEECB1 /* TWebsiteInfo.m */; };
 		52637A251F1E326900DEECB1 /* TAddWebsiteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52637A241F1E326900DEECB1 /* TAddWebsiteTableViewController.m */; };
 		52780E021F20B1EC0073C046 /* TTabBarPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52780E011F20B1EC0073C046 /* TTabBarPlusButton.m */; };
+		52ED54A11F2AE1FC00E11E73 /* TPagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ED54A01F2AE1FC00E11E73 /* TPagesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,8 @@
 		5266EC6D1F21FF6E00346080 /* typecho-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecho-Prefix.pch"; sourceTree = "<group>"; };
 		52780E001F20B1EC0073C046 /* TTabBarPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTabBarPlusButton.h; sourceTree = "<group>"; };
 		52780E011F20B1EC0073C046 /* TTabBarPlusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTabBarPlusButton.m; sourceTree = "<group>"; };
+		52ED549F1F2AE1FC00E11E73 /* TPagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPagesTableViewController.h; sourceTree = "<group>"; };
+		52ED54A01F2AE1FC00E11E73 /* TPagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPagesTableViewController.m; sourceTree = "<group>"; };
 		900CAB93AF38AA9445F4E16F /* Pods-typecho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-typecho.release.xcconfig"; path = "Pods/Target Support Files/Pods-typecho/Pods-typecho.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -218,6 +221,8 @@
 				52637A241F1E326900DEECB1 /* TAddWebsiteTableViewController.m */,
 				52637A1D1F1E1D1B00DEECB1 /* TPostsTableViewController.h */,
 				52637A1E1F1E1D1B00DEECB1 /* TPostsTableViewController.m */,
+				52ED549F1F2AE1FC00E11E73 /* TPagesTableViewController.h */,
+				52ED54A01F2AE1FC00E11E73 /* TPagesTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				526379F11F1E0BF900DEECB1 /* LogCategory.m in Sources */,
 				52637A121F1E196B00DEECB1 /* AppDelegate.m in Sources */,
 				52637A221F1E2C1B00DEECB1 /* TWebsiteInfo.m in Sources */,
+				52ED54A11F2AE1FC00E11E73 /* TPagesTableViewController.m in Sources */,
 				52637A131F1E196B00DEECB1 /* TNetworkTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
