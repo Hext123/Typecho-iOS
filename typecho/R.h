@@ -5,9 +5,22 @@
 
 
 @interface RImages: NSObject
+- (UIImage*)tabbarSetting;
 - (UIImage*)tabbarAdd;
 - (UIImage*)tabbarMy;
-- (UIImage*)tabbarSetting;
+@end
+
+
+@interface RMain: NSObject
+- (__kindof UIViewController*)instantiateInitialViewController;
+- (__kindof UIViewController*)tAddWebsiteTableViewController;
+- (NSString*)tAddWebsiteTableViewControllerIdentifier;
+- (__kindof UIViewController*)tMyTableViewController;
+- (NSString*)tMyTableViewControllerIdentifier;
+- (__kindof UIViewController*)tPagesTableViewController;
+- (NSString*)tPagesTableViewControllerIdentifier;
+- (__kindof UIViewController*)tPostsTableViewController;
+- (NSString*)tPostsTableViewControllerIdentifier;
 @end
 
 
@@ -16,18 +29,9 @@
 @end
 
 
-@interface RMain: NSObject
-- (__kindof UIViewController*)instantiateInitialViewController;
-- (__kindof UIViewController*)tAddWebsiteTableViewController;
-- (__kindof UIViewController*)tMyTableViewController;
-- (__kindof UIViewController*)tPagesTableViewController;
-- (__kindof UIViewController*)tPostsTableViewController;
-@end
-
-
 @interface RStoryboards: NSObject
-- (RLaunchScreen*)launchScreen;
 - (RMain*)main;
+- (RLaunchScreen*)launchScreen;
 @end
 
 

@@ -7,15 +7,29 @@
 
 
 @interface RImages ()
+@property (nonatomic, strong) UIImage* tabbarSetting;
 @property (nonatomic, strong) UIImage* tabbarAdd;
 @property (nonatomic, strong) UIImage* tabbarMy;
-@property (nonatomic, strong) UIImage* tabbarSetting;
 @end
 
 @implementation RImages
+- (UIImage*)tabbarSetting { return [UIImage imageNamed:@"tabbar_setting"]; }
 - (UIImage*)tabbarAdd { return [UIImage imageNamed:@"tabbar_add"]; }
 - (UIImage*)tabbarMy { return [UIImage imageNamed:@"tabbar_my"]; }
-- (UIImage*)tabbarSetting { return [UIImage imageNamed:@"tabbar_setting"]; }
+@end
+
+
+
+@implementation RMain
+- (__kindof UIViewController*)instantiateInitialViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController]; }
+- (__kindof UIViewController*)tAddWebsiteTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TAddWebsiteTableViewController"]; }
+- (NSString*)tAddWebsiteTableViewControllerIdentifier { return @"TAddWebsiteTableViewController"; }
+- (__kindof UIViewController*)tMyTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TMyTableViewController"]; }
+- (NSString*)tMyTableViewControllerIdentifier { return @"TMyTableViewController"; }
+- (__kindof UIViewController*)tPagesTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TPagesTableViewController"]; }
+- (NSString*)tPagesTableViewControllerIdentifier { return @"TPagesTableViewController"; }
+- (__kindof UIViewController*)tPostsTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TPostsTableViewController"]; }
+- (NSString*)tPostsTableViewControllerIdentifier { return @"TPostsTableViewController"; }
 @end
 
 
@@ -25,31 +39,12 @@
 @end
 
 
-
-@implementation RMain
-- (__kindof UIViewController*)instantiateInitialViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController]; }
-- (__kindof UIViewController*)tAddWebsiteTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TAddWebsiteTableViewController"]; }
-- (__kindof UIViewController*)tMyTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TMyTableViewController"]; }
-- (__kindof UIViewController*)tPagesTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TPagesTableViewController"]; }
-- (__kindof UIViewController*)tPostsTableViewController { return [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TPostsTableViewController"]; }
-@end
-
-
 @interface RStoryboards ()
-@property (nonatomic, strong) RLaunchScreen* launchScreen;
 @property (nonatomic, strong) RMain* main;
+@property (nonatomic, strong) RLaunchScreen* launchScreen;
 @end
 
 @implementation RStoryboards
-
-- (RLaunchScreen*)launchScreen
-{
-	if (!_launchScreen)
-	{
-		_launchScreen = [RLaunchScreen new];
-	}
-	return _launchScreen;
-}
 
 - (RMain*)main
 {
@@ -58,6 +53,15 @@
 		_main = [RMain new];
 	}
 	return _main;
+}
+
+- (RLaunchScreen*)launchScreen
+{
+	if (!_launchScreen)
+	{
+		_launchScreen = [RLaunchScreen new];
+	}
+	return _launchScreen;
 }
 
 @end
