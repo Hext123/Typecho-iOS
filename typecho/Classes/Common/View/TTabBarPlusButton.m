@@ -16,4 +16,12 @@
     return btn;
 }
 
++ (CGFloat)multiplierOfTabBarHeight:(CGFloat)tabBarHeight{
+    return 0.0;
+}
+
++ (CGFloat)constantOfPlusButtonCenterYOffsetForTabBarHeight:(CGFloat)tabBarHeight{
+    return 22.0;
+}
+
 @end
