@@ -20,6 +20,7 @@
     NSURL *URL = [NSURL URLWithString:URLString];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     [request setHTTPMethod:@"POST"];
+    [request addValue:@"plain-text" forHTTPHeaderField:@"User-Agent"];
     
     WPXMLRPCEncoder *encoder = [[WPXMLRPCEncoder alloc] initWithMethod:method andParameters:parameters];
     [request setHTTPBody:[encoder dataEncodedWithError:nil]];

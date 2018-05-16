@@ -32,13 +32,51 @@
     
     self.title = @"编辑";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(close)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(close)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
 }
 
 - (void)close{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)save{
+    
+    TWebsiteInfo *info = [TWebsiteInfo currentWebsiteInfo];
+    
+    NSString *urlString = info.url;
+    NSString *methodName = @"metaWeblog.newPost";
+    
+    if (![info.methods containsObject:methodName]) {
+        [TProgressHUD showError:@"您的站点不支持此功能"];
+        return;
+    }
+    
+    NSDictionary *content = @{
+                              @"title":@"测试发布文章",
+                              @"description":self.textView.text,
+                              @"post_type":@"post",//post/page
+                              @"categories":@[],
+                              };
+    NSArray *parameters = @[@0, info.username, info.password, content, @YES];
+    
+    [TNetworkTool POST:urlString method:methodName parameters:parameters completion:^(NSURLResponse *response, id responseObject, NSError *error) {
+        
+        if (error) {
+            [TProgressHUD showError:@"连接失败, 请检查网络!"];
+        } else {
+            WPXMLRPCDecoder *decoder = responseObject;
+            if ([decoder isFault]) {
+                NSLog(@"XML-RPC error %ld: %@", (long)[decoder faultCode], [decoder faultString]);
+                
+                [TProgressHUD showError:[decoder faultString]];
+            } else {
+                NSLog(@"XML-RPC response: %@", [decoder object]);
+                
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+        }
+    }];
+}
 
 #pragma mark - 创建textView
 - (void)createTextView {
