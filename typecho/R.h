@@ -8,6 +8,20 @@
 - (UIImage*)tabbarSetting;
 - (UIImage*)tabbarAdd;
 - (UIImage*)tabbarMy;
+- (UIImage*)iconHelp;
+- (UIImage*)iconKeyboard;
+- (UIImage*)ol;
+- (UIImage*)bold;
+- (UIImage*)code;
+- (UIImage*)title;
+- (UIImage*)link;
+- (UIImage*)img;
+- (UIImage*)help;
+- (UIImage*)quote;
+- (UIImage*)hr;
+- (UIImage*)italic;
+- (UIImage*)more;
+- (UIImage*)ul;
 @end
 
 

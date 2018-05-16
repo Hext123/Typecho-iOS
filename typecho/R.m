@@ -10,12 +10,40 @@
 @property (nonatomic, strong) UIImage* tabbarSetting;
 @property (nonatomic, strong) UIImage* tabbarAdd;
 @property (nonatomic, strong) UIImage* tabbarMy;
+@property (nonatomic, strong) UIImage* iconHelp;
+@property (nonatomic, strong) UIImage* iconKeyboard;
+@property (nonatomic, strong) UIImage* ol;
+@property (nonatomic, strong) UIImage* bold;
+@property (nonatomic, strong) UIImage* code;
+@property (nonatomic, strong) UIImage* title;
+@property (nonatomic, strong) UIImage* link;
+@property (nonatomic, strong) UIImage* img;
+@property (nonatomic, strong) UIImage* help;
+@property (nonatomic, strong) UIImage* quote;
+@property (nonatomic, strong) UIImage* hr;
+@property (nonatomic, strong) UIImage* italic;
+@property (nonatomic, strong) UIImage* more;
+@property (nonatomic, strong) UIImage* ul;
 @end
 
 @implementation RImages
 - (UIImage*)tabbarSetting { return [UIImage imageNamed:@"tabbar_setting"]; }
 - (UIImage*)tabbarAdd { return [UIImage imageNamed:@"tabbar_add"]; }
 - (UIImage*)tabbarMy { return [UIImage imageNamed:@"tabbar_my"]; }
+- (UIImage*)iconHelp { return [UIImage imageNamed:@"icon-help"]; }
+- (UIImage*)iconKeyboard { return [UIImage imageNamed:@"icon-keyboard"]; }
+- (UIImage*)ol { return [UIImage imageNamed:@"ol.png"]; }
+- (UIImage*)bold { return [UIImage imageNamed:@"bold.png"]; }
+- (UIImage*)code { return [UIImage imageNamed:@"code.png"]; }
+- (UIImage*)title { return [UIImage imageNamed:@"title.png"]; }
+- (UIImage*)link { return [UIImage imageNamed:@"link.png"]; }
+- (UIImage*)img { return [UIImage imageNamed:@"img.png"]; }
+- (UIImage*)help { return [UIImage imageNamed:@"help.png"]; }
+- (UIImage*)quote { return [UIImage imageNamed:@"quote.png"]; }
+- (UIImage*)hr { return [UIImage imageNamed:@"hr.png"]; }
+- (UIImage*)italic { return [UIImage imageNamed:@"italic.png"]; }
+- (UIImage*)more { return [UIImage imageNamed:@"more.png"]; }
+- (UIImage*)ul { return [UIImage imageNamed:@"ul.png"]; }
 @end
 
 
