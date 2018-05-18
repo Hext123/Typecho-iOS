@@ -51,9 +51,11 @@
         return;
     }
     
+    NSString *postContent = [NSString stringWithFormat:@"<!--markdown-->%@",self.textView.text];
+    
     NSDictionary *content = @{
                               @"title":@"测试发布文章",
-                              @"description":self.textView.text,
+                              @"description":postContent,
                               @"post_type":@"post",//post/page
                               @"categories":@[],
                               };
