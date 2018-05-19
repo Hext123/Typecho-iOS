@@ -69,39 +69,18 @@ typedef NS_ENUM(NSInteger, TTableFooterViewType) {
     
     NSString *urlString = info.url;
     NSString *methodName = @"metaWeblog.getRecentPosts";
-    
-    if (![info.methods containsObject:methodName]) {
-        [TProgressHUD showError:@"您的站点不支持此功能"];
-        
-        [self setTableFooterViewType:TTableFooterViewTypeNone];
-        return;
-    }
-    
     NSArray *parameters = @[@0, info.username, info.password, @20];
     
-    [TNetworkTool POST:urlString method:methodName parameters:parameters completion:^(NSURLResponse *response, id responseObject, NSError *error) {
+    [TNetworkTool POST:urlString method:methodName parameters:parameters verifyType:NSArray.class completion:^(NSURLResponse *response, NSArray *responseObject, NSError *error) {
         
         [self setTableFooterViewType:TTableFooterViewTypeNone];
         
         if (error) {
-            [TProgressHUD showError:@"连接失败, 请检查网络!"];
+            [TProgressHUD showError:error.localizedDescription];
         } else {
-            WPXMLRPCDecoder *decoder = responseObject;
-            if ([decoder isFault]) {
-                NSLog(@"XML-RPC error %ld: %@", (long)[decoder faultCode], [decoder faultString]);
-                
-                [TProgressHUD showError:[decoder faultString]];
-            } else {
-                NSLog(@"XML-RPC response: %@", [decoder object]);
-                if ([[decoder object] isKindOfClass:[NSArray class]]) {
-                    
-                    self.data = [decoder object];
-                    [self.tableView reloadData];
-                }else{
-                    
-                    [TProgressHUD showError:@"解析失败! 收到的数据格式不正确."];
-                }
-            }
+            
+            self.data = responseObject;
+            [self.tableView reloadData];
         }
     }];
 }

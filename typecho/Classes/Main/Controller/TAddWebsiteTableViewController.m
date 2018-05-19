@@ -40,37 +40,16 @@
     NSString *urlString = self.websiteTF.text;
     NSString *methodName = @"system.listMethods";
     
-    [TNetworkTool POST:urlString method:methodName parameters:nil completion:^(NSURLResponse *response, id responseObject, NSError *error) {
+    [TNetworkTool POST:urlString method:methodName parameters:nil verifyType:NSArray.class completion:^(NSURLResponse *response, NSArray *responseObject, NSError *error) {
         
-        WPXMLRPCDecoder *decoder = responseObject;
-        if (error || ![decoder object]) {
+        if (error) {
             
             sender.enabled = YES;
             [sender setTitle:@"添加站点" forState:UIControlStateNormal];
-            
-            [TProgressHUD showError:@"验证失败！请检查您的网络和URL输入是否正确。"];
+            [TProgressHUD showError:error.localizedDescription];
         } else {
-            if ([decoder isFault]) {
-                
-                sender.enabled = YES;
-                [sender setTitle:@"添加站点" forState:UIControlStateNormal];
-                
-                [TProgressHUD showError:[decoder faultString]];
-                
-                NSLog(@"XML-RPC error %ld: %@", (long)[decoder faultCode], [decoder faultString]);
-               
-            } else {
-                NSLog(@"XML-RPC response: %@", [decoder object]);
-                if ([[decoder object] isKindOfClass:[NSArray class]]) {
-                    [self getOptions:sender methods:[decoder object]];
-                }else{
-                    
-                    [TProgressHUD showError:@"解析失败! 收到的数据格式不正确."];
-                    
-                    sender.enabled = YES;
-                    [sender setTitle:@"添加站点" forState:UIControlStateNormal];
-                }
-            }
+            
+            [self getOptions:sender methods:responseObject];
         }
     }];
 }
@@ -81,37 +60,22 @@
     NSString *methodName = @"wp.getOptions";
     NSArray *parameters = @[@0, self.usernameTF.text, self.passwordTF.text];
     
-    [TNetworkTool POST:urlString method:methodName parameters:parameters completion:^(NSURLResponse *response, id responseObject, NSError *error) {
+    [TNetworkTool POST:urlString method:methodName parameters:parameters verifyType:NSDictionary.class completion:^(NSURLResponse *response, NSDictionary *responseObject, NSError *error) {
         
         sender.enabled = YES;
         [sender setTitle:@"添加站点" forState:UIControlStateNormal];
         
-        WPXMLRPCDecoder *decoder = responseObject;
-        if (error || ![decoder object]) {
-            [TProgressHUD showError:@"验证失败！请检查您的网络和URL输入是否正确。"];
+        if (error) {
+            [TProgressHUD showError:error.localizedDescription];
         } else {
-            if ([decoder isFault]) {
-                
-                [TProgressHUD showError: [decoder faultString]];
-                NSLog(@"XML-RPC error %ld: %@", (long)[decoder faultCode], [decoder faultString]);
-               
-            } else {
-                NSLog(@"XML-RPC response: %@", [decoder object]);
-                if ([[decoder object] isKindOfClass:[NSDictionary class]]) {
-                    
-                    TWebsiteInfo *info = [TWebsiteInfo currentWebsiteInfo];
-                    info.url = self.websiteTF.text;
-                    info.username = self.usernameTF.text;
-                    info.password = self.passwordTF.text;
-                    info.methods = methods;
-                    [TWebsiteInfo save];
-                    
-                    [UIApplication sharedApplication].delegate.window.rootViewController = [TTabBarController newTabBarController];
-                }else{
-                    
-                    [TProgressHUD showError:@"解析失败! 收到的数据格式不正确."];
-                }
-            }
+            TWebsiteInfo *info = [TWebsiteInfo currentWebsiteInfo];
+            info.url = self.websiteTF.text;
+            info.username = self.usernameTF.text;
+            info.password = self.passwordTF.text;
+            info.methods = methods;
+            [TWebsiteInfo save];
+            
+            [UIApplication sharedApplication].delegate.window.rootViewController = [TTabBarController newTabBarController];
         }
     }];
 }

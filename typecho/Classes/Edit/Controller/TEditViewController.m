@@ -64,18 +64,11 @@
     [TNetworkTool POST:urlString method:methodName parameters:parameters completion:^(NSURLResponse *response, id responseObject, NSError *error) {
         
         if (error) {
-            [TProgressHUD showError:@"连接失败, 请检查网络!"];
+            [TProgressHUD showError:error.localizedDescription];
         } else {
             WPXMLRPCDecoder *decoder = responseObject;
-            if ([decoder isFault]) {
-                NSLog(@"XML-RPC error %ld: %@", (long)[decoder faultCode], [decoder faultString]);
-                
-                [TProgressHUD showError:[decoder faultString]];
-            } else {
-                NSLog(@"XML-RPC response: %@", [decoder object]);
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
 }

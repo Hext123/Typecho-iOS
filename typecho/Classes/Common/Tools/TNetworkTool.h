@@ -15,4 +15,17 @@
                         method:(NSString *)method
                     parameters:(NSArray *)parameters
                     completion:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completion;
+
++ (NSURLSessionDataTask *)POST:(NSString *)URLString
+                        method:(NSString *)method
+                    parameters:(NSArray *)parameters
+                    verifyType:(Class)verifyType
+                    completion:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completion;
+
++ (NSURLSessionDataTask *)POST:(NSString *)URLString
+                        method:(NSString *)method
+                  verifyMethod:(BOOL)verifyMethod
+                    parameters:(NSArray *)parameters
+                    verifyType:(Class)verifyType
+                    completion:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completion;
 @end
