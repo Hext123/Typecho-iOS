@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - CYLTabBarController (1.17.6)
+  - MJExtension (3.0.13)
   - R.objc (0.6.0)
   - WoodPeckeriOS (1.0.6)
   - wpxmlrpc (0.8.3)
@@ -22,6 +23,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - CYLTabBarController
+  - MJExtension
   - R.objc
   - WoodPeckeriOS
   - wpxmlrpc
@@ -30,6 +32,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - CYLTabBarController
+    - MJExtension
     - R.objc
     - WoodPeckeriOS
     - wpxmlrpc
@@ -37,10 +40,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CYLTabBarController: c374643dea6dadece8bdff9c70f7387f8ffd7d08
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   R.objc: b094ae8687e3e1ee1c1955b3faf015681b1d2397
   WoodPeckeriOS: 0edc017a604ea8d71660bc8bc971e7a0cd19e6d0
   wpxmlrpc: bfc572f62ce7ee897f6f38b098d2ba08732ecef4
 
-PODFILE CHECKSUM: 806d02da41b87349aa8105cc0f8bae4b421e688f
+PODFILE CHECKSUM: cd26a5fe66215a67a8efac78578b76b3bbf1b3d4
 
 COCOAPODS: 1.5.2

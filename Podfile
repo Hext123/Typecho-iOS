@@ -13,6 +13,7 @@ target 'typecho' do
   pod 'CYLTabBarController'
   pod 'AFNetworking'
   pod 'R.objc'
+  pod 'MJExtension'
   
   # 加入WoodPecker工具框架 (查看沙盒,网络请求等. 只在Debug模式生效)
   pod 'WoodPeckeriOS', :configurations => ['Debug']

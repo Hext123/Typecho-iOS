@@ -21,6 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    TWebsiteInfo *info = [TWebsiteInfo read];
+    self.websiteTF.text = info.url;
+    self.usernameTF.text = info.username;
+    self.passwordTF.text = info.password;
 }
 
 - (IBAction)addWebsite:(UIButton *)sender {
@@ -99,6 +104,7 @@
                     info.username = self.usernameTF.text;
                     info.password = self.passwordTF.text;
                     info.methods = methods;
+                    [TWebsiteInfo save];
                     
                     [UIApplication sharedApplication].delegate.window.rootViewController = [TTabBarController newTabBarController];
                 }else{

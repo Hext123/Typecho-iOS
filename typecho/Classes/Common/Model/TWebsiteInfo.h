@@ -9,10 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface TWebsiteInfo : NSObject
-+ (instancetype)currentWebsiteInfo;
 
 @property (copy, nonatomic) NSString *url;
 @property (copy, nonatomic) NSString *username;
 @property (copy, nonatomic) NSString *password;
 @property (copy, nonatomic) NSArray<NSString *> *methods;
+
++ (instancetype)currentWebsiteInfo;
++ (instancetype)read;
++ (void)save;
++ (void)remove;
+
 @end
